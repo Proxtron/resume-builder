@@ -8,4 +8,6 @@
 
 .input {
     padding:.75em .5em;
+    margin-right: auto;
+    display: block;
 }

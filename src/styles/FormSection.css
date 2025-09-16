@@ -1,0 +1,11 @@
+.title {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.form-section {
+    background-color: #333;
+    padding: 1.5em;
+    border-radius: 1rem;
+    margin-bottom: 2.5rem;
+}
