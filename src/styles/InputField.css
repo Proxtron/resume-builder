@@ -1,13 +1,27 @@
 .input-label {
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 500;
     display: block;
     text-align: left;
     margin-bottom: .5rem;
 }
 
-.input {
-    padding:.75em .5em;
-    margin-right: auto;
+.input, .textarea {
+    border: 1px solid #555;
+    padding:.75rem .75rem;
+    font-size:1rem;
+    border-radius: .5rem;
+    color:#DDD;
     display: block;
+    width:100%;
+    
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.input-field {
+    margin-bottom: 1rem;
 }

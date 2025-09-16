@@ -1,6 +1,6 @@
 .input-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 1rem;
+    gap:1rem;
     margin-bottom: 1rem;
 }
