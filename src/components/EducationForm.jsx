@@ -1,8 +1,11 @@
-import "../styles/FormSection.css";
-import FormManipulationIcons from "./FormManipulationIcons";
 import { useState } from "react";
+import "../styles/FormSection.css";
+import InputRow from "./InputRow";
+import InputField from "./InputField";
+import personIcon from "../../public/person-svgrepo-com.svg";
+import FormManipulationIcons from "./FormManipulationIcons";
 
-export default function FormSection({title, children, icon}) {
+export default function EducationForm() {
     const [isOpened, setIsOpened] = useState(true);
     const [isEditable, setIsEditable] = useState(false);
 
@@ -17,8 +20,8 @@ export default function FormSection({title, children, icon}) {
     return (
         <section className="form-section">
             <div className={`form-section-header ${isOpened ? "" : "form-section-header-closed"}`}>
-                <img className="icon-style" src={icon}/>
-                <h2 className="title">{title}</h2>
+                <img className="icon-style" src={personIcon}/>
+                <h2 className="title">General Information</h2>
                 <button 
                     className="open-close-btn" 
                     aria-label={isOpened ? "Close section": "Open section"} 
@@ -27,7 +30,18 @@ export default function FormSection({title, children, icon}) {
                 </button>
             </div>
             
-            {isOpened && children}
+            {isOpened && (
+                <>
+                    <InputRow>
+                        <InputField id="school" name="School" placeholder="Type here..."/>
+                        <InputField id="degree" name="Degree" placeholder="Type here..."/>
+                    </InputRow>
+                    <InputRow>
+                        <InputField id="degree-start" name="Start Date" type="date"/>
+                        <InputField id="degree-end" name="End Date" type="date"/>
+                    </InputRow>
+                </>
+            )}
             {isOpened && (<FormManipulationIcons isEditable={isEditable} clickHandler={handleEdit}/>)}
         </section>
     )
