@@ -33,13 +33,13 @@ export default function ExperienceForm() {
             {isOpened && (
                 <>
                     <InputRow>
-                        <InputField id="company-name" name="Company Name" placeholder="Type here..."/>
-                        <InputField id="job-title" name="Job title" placeholder="Type here..."/>
+                        <InputField id="company-name" name="Company Name" placeholder="Type here..." isEditable={isEditable}/>
+                        <InputField id="job-title" name="Job title" placeholder="Type here..." isEditable={isEditable}/>
                     </InputRow>
-                    <InputField id="job-description" name="Job Description" type="textarea" placeholder="Type here..."/>
+                    <InputField id="job-description" name="Job Description" type="textarea" placeholder="Type here..." isEditable={isEditable}/>
                     <InputRow>
-                        <InputField id="job-start" name="Start Date" type="date"/>
-                        <InputField id="job-end" name="End Date" type="date"/>
+                        <InputField id="job-start" name="Start Date" type="date" isEditable={isEditable}/>
+                        <InputField id="job-end" name="End Date" type="date" isEditable={isEditable}/>
                     </InputRow>
                 </>
             )}

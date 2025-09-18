@@ -33,12 +33,12 @@ export default function GeneralInformationForm() {
             {isOpened && (
                 <>
                     <InputRow>
-                        <InputField id="first-name" name="First Name" placeholder="Type here..."/>
-                        <InputField id="last-name" name="Last Name" placeholder="Type here..."/>
+                        <InputField id="first-name" name="First Name" placeholder="Type here..." isEditable={isEditable}/>
+                        <InputField id="last-name" name="Last Name" placeholder="Type here..." isEditable={isEditable}/>
                     </InputRow>
                     <InputRow>
-                        <InputField id="email" name="Email" type="email" placeholder="hello@example.com"/>
-                        <InputField id="phone-number" name="Phone Number" type="tel" placeholder="(XXX) XXX-XXXX" />
+                        <InputField id="email" name="Email" type="email" placeholder="hello@example.com" isEditable={isEditable}/>
+                        <InputField id="phone-number" name="Phone Number" type="tel" placeholder="(XXX) XXX-XXXX" isEditable={isEditable}/>
                     </InputRow>
                 </>
             )}

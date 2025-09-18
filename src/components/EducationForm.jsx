@@ -33,12 +33,12 @@ export default function EducationForm() {
             {isOpened && (
                 <>
                     <InputRow>
-                        <InputField id="school" name="School" placeholder="Type here..."/>
-                        <InputField id="degree" name="Degree" placeholder="Type here..."/>
+                        <InputField id="school" name="School" placeholder="Type here..." isEditable={isEditable}/>
+                        <InputField id="degree" name="Degree" placeholder="Type here..." isEditable={isEditable}/>
                     </InputRow>
                     <InputRow>
-                        <InputField id="degree-start" name="Start Date" type="date"/>
-                        <InputField id="degree-end" name="End Date" type="date"/>
+                        <InputField id="degree-start" name="Start Date" type="date" isEditable={isEditable}/>
+                        <InputField id="degree-end" name="End Date" type="date" isEditable={isEditable}/>
                     </InputRow>
                 </>
             )}
