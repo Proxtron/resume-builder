@@ -17,6 +17,10 @@
     
 }
 
+.input:disabled, .textarea:disabled {
+    cursor: not-allowed;
+}
+
 .textarea {
     resize: vertical;
     min-height: 150px;
