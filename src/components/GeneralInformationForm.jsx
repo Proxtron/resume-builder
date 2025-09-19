@@ -3,18 +3,14 @@ import "../styles/FormSection.css";
 import InputRow from "./InputRow";
 import InputField from "./InputField";
 import educationIcon from "../../public/education-cap-svgrepo-com.svg";
-import FormManipulationIcons from "./FormManipulationIcons";
 
-export default function GeneralInformationForm() {
+export default function GeneralInformationForm({values, onFormChange}) {
     const [isOpened, setIsOpened] = useState(true);
-    const [isEditable, setIsEditable] = useState(false);
+
+    const {first, last, email, phone} = values;
 
     function handleOpen() {
         setIsOpened(!isOpened);
-    }
-
-    function handleEdit() {
-        setIsEditable(!isEditable);
     }
 
     return (
@@ -26,23 +22,28 @@ export default function GeneralInformationForm() {
                     className="open-close-btn" 
                     aria-label={isOpened ? "Close section": "Open section"} 
                     onClick={handleOpen}>
-                        {isOpened ? "-" : "+"}
+                        {isOpened ? "_" : "+"}
                 </button>
             </div>
             
             {isOpened && (
                 <>
                     <InputRow>
-                        <InputField id="first-name" name="First Name" placeholder="Type here..." isEditable={isEditable}/>
-                        <InputField id="last-name" name="Last Name" placeholder="Type here..." isEditable={isEditable}/>
+                        <InputField id="first-name" name="First Name" placeholder="Type here..." 
+                        value={first} onChange={(e) => onFormChange("firstName", e.target.value)}/>
+
+                        <InputField id="last-name" name="Last Name" placeholder="Type here..." 
+                        value={last} onChange={(e) => onFormChange("lastName", e.target.value)}/>
                     </InputRow>
                     <InputRow>
-                        <InputField id="email" name="Email" type="email" placeholder="hello@example.com" isEditable={isEditable}/>
-                        <InputField id="phone-number" name="Phone Number" type="tel" placeholder="(XXX) XXX-XXXX" isEditable={isEditable}/>
+                        <InputField id="email" name="Email" type="email" placeholder="hello@example.com" 
+                        value={email} onChange={(e) => onFormChange("email", e.target.value)}/>
+                        
+                        <InputField id="phone-number" name="Phone Number" type="tel" placeholder="(XXX) XXX-XXXX" 
+                        value={phone} onChange={(e) => onFormChange("phoneNumber", e.target.value)}/>
                     </InputRow>
                 </>
             )}
-            {isOpened && (<FormManipulationIcons isEditable={isEditable} clickHandler={handleEdit}/>)}
         </section>
     )
 }

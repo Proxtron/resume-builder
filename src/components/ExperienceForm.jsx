@@ -3,18 +3,14 @@ import "../styles/FormSection.css";
 import InputRow from "./InputRow";
 import InputField from "./InputField";
 import jobIcon from "../../public/portfolio-suitcase-svgrepo-com.svg";
-import FormManipulationIcons from "./FormManipulationIcons";
 
-export default function ExperienceForm() {
+export default function ExperienceForm({values, onFormChange}) {
     const [isOpened, setIsOpened] = useState(true);
-    const [isEditable, setIsEditable] = useState(false);
 
+    const {companyName, jobTitle, jobDescription, startDate, endDate} = values;
+    
     function handleOpen() {
         setIsOpened(!isOpened);
-    }
-
-    function handleEdit() {
-        setIsEditable(!isEditable);
     }
 
     return (
@@ -26,24 +22,28 @@ export default function ExperienceForm() {
                     className="open-close-btn" 
                     aria-label={isOpened ? "Close section": "Open section"} 
                     onClick={handleOpen}>
-                        {isOpened ? "-" : "+"}
+                        {isOpened ? "_" : "+"}
                 </button>
             </div>
             
             {isOpened && (
                 <>
                     <InputRow>
-                        <InputField id="company-name" name="Company Name" placeholder="Type here..." isEditable={isEditable}/>
-                        <InputField id="job-title" name="Job title" placeholder="Type here..." isEditable={isEditable}/>
+                        <InputField id="company-name" name="Company Name" placeholder="Type here..." 
+                        value={companyName} onChange={(e) => onFormChange("companyName", e.target.value)}/>
+                        <InputField id="job-title" name="Job title" placeholder="Type here..." 
+                        value={jobTitle} onChange={(e) => onFormChange("jobTitle", e.target.value)}/>
                     </InputRow>
-                    <InputField id="job-description" name="Job Description" type="textarea" placeholder="Type here..." isEditable={isEditable}/>
+                    <InputField id="job-description" name="Job Description" type="textarea" placeholder="Type here..." 
+                    value={jobDescription} onChange={(e) => onFormChange("jobDescription", e.target.value)}/>
                     <InputRow>
-                        <InputField id="job-start" name="Start Date" type="date" isEditable={isEditable}/>
-                        <InputField id="job-end" name="End Date" type="date" isEditable={isEditable}/>
+                        <InputField id="job-start" name="Start Date" type="date" 
+                        value={startDate} onChange={(e) => onFormChange("startDate", e.target.value)}/>
+                        <InputField id="job-end" name="End Date" type="date" 
+                        value={endDate} onChange={(e) => onFormChange("endDate", e.target.value)}/>
                     </InputRow>
                 </>
             )}
-            {isOpened && (<FormManipulationIcons isEditable={isEditable} clickHandler={handleEdit}/>)}
         </section>
     )
 }

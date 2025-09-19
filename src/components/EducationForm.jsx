@@ -3,18 +3,14 @@ import "../styles/FormSection.css";
 import InputRow from "./InputRow";
 import InputField from "./InputField";
 import personIcon from "../../public/person-svgrepo-com.svg";
-import FormManipulationIcons from "./FormManipulationIcons";
 
-export default function EducationForm() {
+export default function EducationForm({values, onFormChange}) {
     const [isOpened, setIsOpened] = useState(true);
-    const [isEditable, setIsEditable] = useState(false);
+
+    const {school, degree, degreeStart, degreeEnd} = values;
 
     function handleOpen() {
         setIsOpened(!isOpened);
-    }
-
-    function handleEdit() {
-        setIsEditable(!isEditable);
     }
 
     return (
@@ -26,23 +22,26 @@ export default function EducationForm() {
                     className="open-close-btn" 
                     aria-label={isOpened ? "Close section": "Open section"} 
                     onClick={handleOpen}>
-                        {isOpened ? "-" : "+"}
+                        {isOpened ? "_" : "+"}
                 </button>
             </div>
             
             {isOpened && (
                 <>
                     <InputRow>
-                        <InputField id="school" name="School" placeholder="Type here..." isEditable={isEditable}/>
-                        <InputField id="degree" name="Degree" placeholder="Type here..." isEditable={isEditable}/>
+                        <InputField id="school" name="School" placeholder="Type here..." 
+                        value={school} onChange={(e) => onFormChange("school", e.target.value)}/>
+                        <InputField id="degree" name="Degree" placeholder="Type here..." 
+                        value={degree} onChange={(e) => onFormChange("degree", e.target.value)}/>
                     </InputRow>
                     <InputRow>
-                        <InputField id="degree-start" name="Start Date" type="date" isEditable={isEditable}/>
-                        <InputField id="degree-end" name="End Date" type="date" isEditable={isEditable}/>
+                        <InputField id="degree-start" name="Start Date" type="date" 
+                        value={degreeStart} onChange={(e) => onFormChange("degreeStart", e.target.value)}/>
+                        <InputField id="degree-end" name="End Date" type="date" 
+                        value={degreeEnd} onChange={(e) => onFormChange("degreeEnd", e.target.value)}/>
                     </InputRow>
                 </>
             )}
-            {isOpened && (<FormManipulationIcons isEditable={isEditable} clickHandler={handleEdit}/>)}
         </section>
     )
 }
