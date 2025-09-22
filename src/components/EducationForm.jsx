@@ -35,9 +35,9 @@ export default function EducationForm({values, onFormChange}) {
                         value={degree} onChange={(e) => onFormChange("degree", e.target.value)}/>
                     </InputRow>
                     <InputRow>
-                        <InputField id="degree-start" name="Start Date" type="date" 
+                        <InputField id="degree-start" name="Start Date" type="month" 
                         value={degreeStart} onChange={(e) => onFormChange("degreeStart", e.target.value)}/>
-                        <InputField id="degree-end" name="End Date" type="date" 
+                        <InputField id="degree-end" name="End Date" type="month" 
                         value={degreeEnd} onChange={(e) => onFormChange("degreeEnd", e.target.value)}/>
                     </InputRow>
                 </>
