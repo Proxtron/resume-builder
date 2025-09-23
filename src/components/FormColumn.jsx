@@ -3,13 +3,15 @@ import EducationForm from "./EducationForm";
 import ExperienceForm from "./ExperienceForm";
 import "../styles/FormColumn.css";
 
-export default function FormColumn({values, onFormChange, educationValues, addEducation, editEducation, deleteEducation}) {
+export default function FormColumn({values, onFormChange, educationValues, addEducation, editEducation, 
+        deleteEducation, addExperience, editExperience, deleteExperience, experienceValues}) {
     return (
         <section className="form-column">
             <GeneralInformationForm values={values} onFormChange={onFormChange}/>
-            <EducationForm values={values} onFormChange={onFormChange} educationValues={educationValues} 
-                addEducation={addEducation} editEducation={editEducation} deleteEducation={deleteEducation}/>
-            <ExperienceForm values={values} onFormChange={onFormChange}/>
+            <EducationForm educationValues={educationValues} addEducation={addEducation} 
+                editEducation={editEducation} deleteEducation={deleteEducation}/>
+            <ExperienceForm experienceValues={experienceValues} addExperience={addExperience}
+                editExperience={editExperience} deleteExperience={deleteExperience}/>
         </section>
     );
 }

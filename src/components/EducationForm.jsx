@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "../styles/FormSection.css";
-import personIcon from "../../public/person-svgrepo-com.svg";
+import educationIcon from "../../public/education-cap-svgrepo-com.svg";
 import EducationFormItem from "./EducationFormItem";
+import { Fragment } from "react";
 
 export default function EducationForm({educationValues, addEducation, editEducation, deleteEducation}) {
     const [isOpened, setIsOpened] = useState(true);
@@ -13,8 +14,8 @@ export default function EducationForm({educationValues, addEducation, editEducat
     return (
         <section className="form-section">
             <div className={`form-section-header ${isOpened ? "" : "form-section-header-closed"}`}>
-                <img className="icon-style" src={personIcon}/>
-                <h2 className="title">General Information</h2>
+                <img className="icon-style" src={educationIcon}/>
+                <h2 className="title">Education</h2>
                 <button 
                     className="open-close-btn" 
                     aria-label={isOpened ? "Close section": "Open section"} 
@@ -27,11 +28,11 @@ export default function EducationForm({educationValues, addEducation, editEducat
                 <>
                     {educationValues.map((educationItem) => {
                         return (
-                            <>
+                            <Fragment key={educationItem.id}>
                                 <EducationFormItem key={educationItem.id} {...educationItem} editEducation={editEducation}
                                     deleteEducation={deleteEducation}/>
                                 <hr className="form-item-separator"></hr>
-                            </>
+                            </Fragment>
                         )
                     })}
                     <button className="add-btn" 

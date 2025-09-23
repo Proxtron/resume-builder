@@ -1,14 +1,12 @@
 import { useState } from "react";
 import "../styles/FormSection.css";
-import InputRow from "./InputRow";
-import InputField from "./InputField";
 import jobIcon from "../../public/portfolio-suitcase-svgrepo-com.svg";
+import ExperienceFormItem from "./ExperienceFormItem";
+import { Fragment } from "react";
 
-export default function ExperienceForm({values, onFormChange}) {
+export default function ExperienceForm({experienceValues, addExperience, editExperience, deleteExperience}) {
     const [isOpened, setIsOpened] = useState(true);
 
-    const {companyName, jobTitle, jobDescription, startDate, endDate} = values;
-    
     function handleOpen() {
         setIsOpened(!isOpened);
     }
@@ -28,20 +26,20 @@ export default function ExperienceForm({values, onFormChange}) {
             
             {isOpened && (
                 <>
-                    <InputRow>
-                        <InputField id="company-name" name="Company Name" placeholder="Type here..." 
-                        value={companyName} onChange={(e) => onFormChange("companyName", e.target.value)}/>
-                        <InputField id="job-title" name="Job title" placeholder="Type here..." 
-                        value={jobTitle} onChange={(e) => onFormChange("jobTitle", e.target.value)}/>
-                    </InputRow>
-                    <InputField id="job-description" name="Job Description" type="textarea" placeholder="Type here..." 
-                    value={jobDescription} onChange={(e) => onFormChange("jobDescription", e.target.value)}/>
-                    <InputRow>
-                        <InputField id="job-start" name="Start Date" type="month" 
-                        value={startDate} onChange={(e) => onFormChange("startDate", e.target.value)}/>
-                        <InputField id="job-end" name="End Date" type="month" 
-                        value={endDate} onChange={(e) => onFormChange("endDate", e.target.value)}/>
-                    </InputRow>
+                    {experienceValues.map((experienceItem) => {
+                        return (
+                            <Fragment key={experienceItem.id}>
+                                <ExperienceFormItem {...experienceItem} editEducation={editExperience}
+                                    deleteEducation={deleteExperience}/>
+                                <hr className="form-item-separator"></hr>
+                            </Fragment>
+                        )
+                    })}
+                    <button className="add-btn" 
+                        aria-label="Add an Educational Experience"
+                        onClick={addExperience}
+                        >+
+                    </button>
                 </>
             )}
         </section>

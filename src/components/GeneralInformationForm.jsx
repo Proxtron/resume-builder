@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/FormSection.css";
 import InputRow from "./InputRow";
 import InputField from "./InputField";
-import educationIcon from "../../public/education-cap-svgrepo-com.svg";
+import personIcon from "../../public/person-svgrepo-com.svg";
 
 export default function GeneralInformationForm({values, onFormChange}) {
     const [isOpened, setIsOpened] = useState(true);
@@ -16,8 +16,8 @@ export default function GeneralInformationForm({values, onFormChange}) {
     return (
         <section className="form-section">
             <div className={`form-section-header ${isOpened ? "" : "form-section-header-closed"}`}>
-                <img className="icon-style" src={educationIcon}/>
-                <h2 className="title">Education</h2>
+                <img className="icon-style" src={personIcon}/>
+                <h2 className="title">General Information</h2>
                 <button 
                     className="open-close-btn" 
                     aria-label={isOpened ? "Close section": "Open section"} 
