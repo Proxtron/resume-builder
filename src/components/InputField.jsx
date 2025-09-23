@@ -3,7 +3,7 @@ import "../styles/InputField.css";
 export default function InputField({id, name, type="text", placeholder, value, onChange}) {
     return (
         <div className="input-field">
-            <label className="input-label" for={id}>{name}</label>
+            <label className="input-label" htmlFor={id}>{name}</label>
             {
                 type === "textarea" 
                     ? (<textarea className="textarea" 

@@ -37,9 +37,9 @@ export default function ExperienceForm({values, onFormChange}) {
                     <InputField id="job-description" name="Job Description" type="textarea" placeholder="Type here..." 
                     value={jobDescription} onChange={(e) => onFormChange("jobDescription", e.target.value)}/>
                     <InputRow>
-                        <InputField id="job-start" name="Start Date" type="date" 
+                        <InputField id="job-start" name="Start Date" type="month" 
                         value={startDate} onChange={(e) => onFormChange("startDate", e.target.value)}/>
-                        <InputField id="job-end" name="End Date" type="date" 
+                        <InputField id="job-end" name="End Date" type="month" 
                         value={endDate} onChange={(e) => onFormChange("endDate", e.target.value)}/>
                     </InputRow>
                 </>

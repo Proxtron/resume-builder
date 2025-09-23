@@ -1,0 +1,55 @@
+@font-face {
+    font-family: Garamond;
+    src: url(../assets/EBGaramond-VariableFont_wght.ttf);
+}
+
+.resume-page {
+    font-family: Garamond;
+    background-color: #FEFEFE;
+    width:600px;
+    aspect-ratio: 1 / 1.414;
+    color: #101010;
+    padding:5% 5%;
+    container-type: inline-size;
+}
+
+.name-heading {
+    font-size:5cqw;
+}
+
+.resume-text-sm {
+    font-size:2.5cqw;
+}
+
+.resume-section-header {
+    font-size:2.6cqw;
+    text-align: left;
+}
+
+.resume-hr {
+    margin: 0;
+}
+
+.left-align {
+    text-align: left;
+}
+
+.resume-row {
+    display: flex;
+    justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+    .resume-page {
+        width:400px;
+        transform: scale(.8);
+        transform-origin: top;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .resume-page {
+        width:320px;
+        transform: scale(.6);
+        transform-origin: top;
+    }
+}
