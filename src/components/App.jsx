@@ -30,7 +30,7 @@ function App() {
     })
   }
   return (
-    <div class="app-container">
+    <div className="app-container">
       <FormColumn values={formValues} onFormChange={onFormChange}/>
       <OutputColumn values={formValues}/>
     </div>
