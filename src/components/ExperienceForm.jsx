@@ -29,8 +29,8 @@ export default function ExperienceForm({experienceValues, addExperience, editExp
                     {experienceValues.map((experienceItem) => {
                         return (
                             <Fragment key={experienceItem.id}>
-                                <ExperienceFormItem {...experienceItem} editEducation={editExperience}
-                                    deleteEducation={deleteExperience}/>
+                                <ExperienceFormItem {...experienceItem} editExperience={editExperience}
+                                    deleteExperience={deleteExperience}/>
                                 <hr className="form-item-separator"></hr>
                             </Fragment>
                         )

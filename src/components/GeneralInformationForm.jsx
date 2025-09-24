@@ -4,10 +4,10 @@ import InputRow from "./InputRow";
 import InputField from "./InputField";
 import personIcon from "../../public/person-svgrepo-com.svg";
 
-export default function GeneralInformationForm({values, onFormChange}) {
+export default function GeneralInformationForm({generalInfoValues, onFormChange}) {
     const [isOpened, setIsOpened] = useState(true);
 
-    const {first, last, email, phone} = values;
+    const {first, last, email, phone} = generalInfoValues;
 
     function handleOpen() {
         setIsOpened(!isOpened);

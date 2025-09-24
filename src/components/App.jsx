@@ -4,33 +4,23 @@ import OutputColumn from './OutputColumn';
 import { useState } from 'react';
 import { v4 } from 'uuid';
 
-const initialFormValues = {
+const initialGeneralInfoValues = {
   firstName: "",
   lastName: "",
   email: "",
-  phoneNumber: "",
-  school: "",
-  degree: "",
-  degreeStart: "",
-  degreeEnd: "",
-  companyName: "",
-  jobTitle: "",
-  jobDescription: "",
-  startDate: "",
-  endDate: ""
+  phoneNumber: ""
 }
-
 const initialEducationValues = [];
 const initialExperienceValues = [];
 
 function App() {
-  const [formValues, setFormValues] = useState(initialFormValues);
+  const [generalInfoValues, setGeneralInfoValues] = useState(initialGeneralInfoValues);
   const [educationValues, setEducationValues] = useState(initialEducationValues);
   const [experienceValues, setExperienceValues] = useState(initialExperienceValues);
 
   function onFormChange(key, value) {
-    setFormValues({
-        ...formValues,
+    setGeneralInfoValues({
+        ...generalInfoValues,
         [key]: value
     })
   }
@@ -38,6 +28,7 @@ function App() {
   function addEducation() {
     const newEducation = {
       id: v4(),
+      school: "",
       degree: "",
       degreeStart: "",
       degreeEnd: ""
@@ -101,10 +92,10 @@ function App() {
 
   return (
     <div className="app-container">
-      <FormColumn values={formValues} educationValues={educationValues} experienceValues={experienceValues} onFormChange={onFormChange}
-        addEducation={addEducation} editEducation={editEducation} deleteEducation={deleteEducation}
-        addExperience={addExperience} editExperience={editExperience} deleteExperience={deleteExperience}/>
-      <OutputColumn values={formValues}/>
+      <FormColumn generalInfoValues={generalInfoValues} educationValues={educationValues} experienceValues={experienceValues} 
+      onFormChange={onFormChange} addEducation={addEducation} editEducation={editEducation} deleteEducation={deleteEducation}
+      addExperience={addExperience} editExperience={editExperience} deleteExperience={deleteExperience} onFormChange={onFormChange}/>
+      <OutputColumn generalInfoValues={generalInfoValues} educationValues={educationValues} experienceValues={experienceValues}/>
     </div>
   );
 }
