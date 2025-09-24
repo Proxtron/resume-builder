@@ -91,12 +91,18 @@ function App() {
   }
 
   return (
-    <div className="app-container">
+    <>
+    <header className='website-header'>
+      <h1 className="website-title">ResumeForge</h1>
+      <p>Create your resume. Download as PDF.</p>
+    </header>
+    <main className="app-container">
       <FormColumn generalInfoValues={generalInfoValues} educationValues={educationValues} experienceValues={experienceValues} 
       onFormChange={onFormChange} addEducation={addEducation} editEducation={editEducation} deleteEducation={deleteEducation}
       addExperience={addExperience} editExperience={editExperience} deleteExperience={deleteExperience} onFormChange={onFormChange}/>
       <OutputColumn generalInfoValues={generalInfoValues} educationValues={educationValues} experienceValues={experienceValues}/>
-    </div>
+    </main>
+    </>
   );
 }
 
