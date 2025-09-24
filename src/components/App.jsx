@@ -3,6 +3,7 @@ import FormColumn from './FormColumn';
 import OutputColumn from './OutputColumn';
 import { useState } from 'react';
 import { v4 } from 'uuid';
+import { Analytics } from "@vercel/analytics/next"
 
 const initialGeneralInfoValues = {
   firstName: "",
@@ -92,6 +93,7 @@ function App() {
 
   return (
     <>
+    <Analytics/>
     <header className='website-header'>
       <h1 className="website-title">ResumeForge</h1>
       <p>Create your resume. Download as PDF.</p>
