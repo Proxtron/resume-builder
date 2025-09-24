@@ -39,3 +39,27 @@
     width: 32px;
     display: inline-block";
 }
+
+.add-btn {
+    font-size: 1.75rem;
+    padding: .25rem .5rem;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform .4s;
+}
+
+.add-btn:hover {
+    transform: scale(1.25);
+}
+
+.form-item-separator {
+    border-color:#333;
+    margin:1rem 0
+}
+
+.float-right {
+    display: block;
+    margin-left: auto;
+}

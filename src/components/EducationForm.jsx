@@ -1,13 +1,11 @@
 import { useState } from "react";
 import "../styles/FormSection.css";
-import InputRow from "./InputRow";
-import InputField from "./InputField";
-import personIcon from "../../public/person-svgrepo-com.svg";
+import educationIcon from "../../public/education-cap-svgrepo-com.svg";
+import EducationFormItem from "./EducationFormItem";
+import { Fragment } from "react";
 
-export default function EducationForm({values, onFormChange}) {
+export default function EducationForm({educationValues, addEducation, editEducation, deleteEducation}) {
     const [isOpened, setIsOpened] = useState(true);
-
-    const {school, degree, degreeStart, degreeEnd} = values;
 
     function handleOpen() {
         setIsOpened(!isOpened);
@@ -16,8 +14,8 @@ export default function EducationForm({values, onFormChange}) {
     return (
         <section className="form-section">
             <div className={`form-section-header ${isOpened ? "" : "form-section-header-closed"}`}>
-                <img className="icon-style" src={personIcon}/>
-                <h2 className="title">General Information</h2>
+                <img className="icon-style" src={educationIcon}/>
+                <h2 className="title">Education</h2>
                 <button 
                     className="open-close-btn" 
                     aria-label={isOpened ? "Close section": "Open section"} 
@@ -28,18 +26,20 @@ export default function EducationForm({values, onFormChange}) {
             
             {isOpened && (
                 <>
-                    <InputRow>
-                        <InputField id="school" name="School" placeholder="Type here..." 
-                        value={school} onChange={(e) => onFormChange("school", e.target.value)}/>
-                        <InputField id="degree" name="Degree" placeholder="Type here..." 
-                        value={degree} onChange={(e) => onFormChange("degree", e.target.value)}/>
-                    </InputRow>
-                    <InputRow>
-                        <InputField id="degree-start" name="Start Date" type="month" 
-                        value={degreeStart} onChange={(e) => onFormChange("degreeStart", e.target.value)}/>
-                        <InputField id="degree-end" name="End Date" type="month" 
-                        value={degreeEnd} onChange={(e) => onFormChange("degreeEnd", e.target.value)}/>
-                    </InputRow>
+                    {educationValues.map((educationItem) => {
+                        return (
+                            <Fragment key={educationItem.id}>
+                                <EducationFormItem key={educationItem.id} {...educationItem} editEducation={editEducation}
+                                    deleteEducation={deleteEducation}/>
+                                <hr className="form-item-separator"></hr>
+                            </Fragment>
+                        )
+                    })}
+                    <button className="add-btn" 
+                        aria-label="Add an Educational Experience"
+                        onClick={addEducation}
+                        >+
+                    </button>
                 </>
             )}
         </section>

@@ -1,3 +1,17 @@
 .output-column {
     flex:none;
 }
+
+.download-btn {
+    padding:.5em 1em;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: .5rem;
+    border:none;
+    cursor: pointer;
+    transition: transform .5s;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+}
